@@ -1,13 +1,56 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
+    <style>
+    *{
+        box-sizing: border-box;
+      }
+      [class*="col-"] {
+        width: 100%;
+      }
+      
+          
+          @media only screen and (min-width: 600px){
+              /*tablet*/
+                  .col-s-1 {width: 8.33%;}
+                  .col-s-2 {width: 16.66%;}
+                  .col-s-3{width: 25%;}
+                  .col-s-4{width: 33.33%;}
+                  .col-s-5{width: 41.66%;}
+                  .col-s-6{width: 50%;}
+                  .col-s-7{width: 58.33%;}
+                  .col-s-8{width: 66.66%;}
+                  .col-s-9{width: 75%;}
+                  .col-s-10{width: 83.33%;}
+                  .col-s-11{width: 91.66%;}
+                  .col-s-12{width: 100%;} 
+              }
+            
+          @media only screen and (min-width: 768px){
+              /*desktop*/
+              .col-1{width: 8.33%;}
+              .col-2{width: 16.66%;}
+              .col-3{width: 25%;}
+              .col-4{width: 33.33%;}
+              .col-5{width: 41.66%;}
+              .col-6{width: 50% ;}
+              .col-7{width: 58.33%;}
+              .col-8{width: 66.66%;}
+              .col-9{width: 75%;}
+              .col-10{width: 83.33%;}
+              .col-11{width: 91.66%;}
+              .col-12{width: 100%;}
+          }
+          </style>
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our CSTU Passport web</title>
 </head>
 <body>
-    <h1><strong>Our Home page</strong></h1>
-    <img src="pic/ourpic.jpg" alt="ourpic" width="300"/>
+    <div class="col-12 col-s-12">
+        <h1><strong>Our Home page</strong></h1>
+        <img src="pic/ourpic.jpg" alt="ourpic" width="300"/>
+    </div>
+<div class="col-6 col-s-4">
     <h2>Nuch</h2>
     <img src="pic/nuch.jpg" alt="nuchpic" width="200"/>
 
@@ -17,17 +60,19 @@
         <li>Favorite artist:Nct ,Got7 ,Polycat</li>
         <li>Contact(@dome):boonyanut.nua@dome.tu.ac.th</li>
     </ul>
+</div>
+    <div class="col-6 col-s-4">
+        <h2>Nammon</h2>
+        <img src="pic/nammon.jpg" alt="nammonpic" width="200"/>
 
-    <h2>Nammon</h2>
-    <img src="pic/nammon.jpg" alt="nammonpic" width="200"/>
-
-    <ul>
+     <ul>
         <li>Date of Brith: 27/06/2005</li>
         <li>Hobby: read commic book,listen music</li>
         <li>Favorite artist:All Kpop</li>
         <li>Contact(@dome):thawanhathai.thi@dome.tu.ac.th</li>
     </ul>
-
+    </div>
+      <div class="col-6 col-s-4">   
     <h2>Namfon</h2>
     <img src="pic/mypicture.jpg" alt="namfonpic" width="200"/>
 
@@ -37,5 +82,6 @@
         <li>Favorite artist:P'Taytay(Taylor Swift), Blackpink</li>
         <li>Contact(@dome):chayada.thum@dome.tu.ac.th</li>
     </ul>
+      </div>
 </body>
 </html>
