@@ -223,3 +223,9 @@ li.ig {
 img {
     max-width: 100%;
 }
+
+hr{
+  border: 1px solid;
+  color: #d08bff;
+  width: 85%
+}
