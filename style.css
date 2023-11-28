@@ -14,11 +14,6 @@
     display: table;
   }
 
-[class*="col-"] {
-  float: left;
-  padding: 15px;
-}
-
 html {
   font-family: "Lucida Sans", sans-serif;
 }
@@ -28,7 +23,7 @@ html {
   color: #ffffff;
   padding: 15px;
 }
-
+/****** เมนูที่ลิ้งได้ ******/
 .menu ul {
   list-style-type: none;
   margin: 0;
@@ -47,6 +42,11 @@ html {
   background-color: #0099cc;
 }
 
+a {
+  text-decoration: none;
+}
+
+/****** สีของข้อมูลทุกคน ******/
 .menu2 ul {
     list-style-type: none;
     margin: 0;
@@ -74,6 +74,11 @@ html {
   color: #ffffff;
   text-align: center;
   font-size: 12px;
+  padding: 15px;
+}
+
+[class*="col-"] {
+  float: left;
   padding: 15px;
 }
 

@@ -17,3 +17,6 @@ function submitForm(event) {
   // Attach a submit event listener to the form
   document.getElementById("myForm").addEventListener("submit", submitForm);
   
+  function showAlert(name) {
+    alert('คุณคลิกที่ ' + name + ' แล้ว');
+  }
