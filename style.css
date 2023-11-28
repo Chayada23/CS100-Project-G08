@@ -1,7 +1,26 @@
 * {
   box-sizing: border-box;
 }
+/*****************
+    scrollbar
+*****************/
+::-webkit-Scrollbar{
 
+  width: 10px; 
+  background: #000000;
+  
+  }
+  
+  ::-webkit-Scrollbar-thumb{
+  
+  border-radius: 10px;
+  background: #d08bff;
+  box-shadow: inset 0 0 20px #c16afb;
+  
+  }
+/***********
+เมนู รูปรวม VR
+************/
 .row::after {
   content: "";
   clear: both;
@@ -13,7 +32,9 @@
     clear: both;
     display: table;
   }
-
+/******************
+font และ สีทั้งหน้าเว็บ
+******************/
 html {
   font-family: "Lucida Sans", sans-serif;
 }
@@ -35,6 +56,9 @@ body {
   padding: 15px;
 }*/
 .header {
+  display: flex;
+  justify-content: center; /* ย้ายรูปไปอยู่ตรงกลางแนวนอน */
+  align-items: center; 
   width: 100vw; /* กว้างเต็มขอบจอ */
   height: auto; /* ความสูงเป็น auto เพื่อให้เต็มความสูงของเนื้อหาภายใน */
   padding: 20px; /* กำหนด Padding ตามที่ต้องการ */
@@ -42,14 +66,28 @@ body {
   
 }
 
+/*.footer {
+  width: 100vw; 
+  height: auto; 
+  padding: 20px; 
+  box-sizing: border-box;
+  background-color: #333; 
+  color: #fff; 
+}*/
+
 .footer {
   width: 100vw; /* กว้างเต็มขอบจอ */
   height: auto; /* ความสูงเป็น auto เพื่อให้เต็มความสูงของเนื้อหาภายใน */
   padding: 20px; /* กำหนด Padding ตามที่ต้องการ */
+  margin: 0; /* กำหนด Margin เป็น 0 เพื่อให้ไม่มีช่องว่างรอบขอบ */
   box-sizing: border-box;
   background-color: #333; /* เปลี่ยนสีพื้นหลังตามที่ต้องการ */
   color: #fff; /* เปลี่ยนสีข้อความตามที่ต้องการ */
+  position: fixed; /* ติดด้านล่างของหน้าจอ */
+  bottom: 0; /* ตั้งค่าให้ติดกับด้านล่างของหน้าจอ */
+  left: 0; /* ตั้งค่าให้ติดด้านซ้ายของหน้าจอ */
 }
+
 
 /****** เมนูที่ลิ้งได้ ******/
 .menu ul {
@@ -64,10 +102,20 @@ body {
   background-color:#d08bff;
   color: #ffffff;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  border-radius: 20px;
 }
 
 .menu li:hover {
   background-color: #ddb4fa;
+}
+
+li.two {
+  background-color: #2a2a2a;
+  border-radius: 20px;
+}
+
+li.two:hover {
+  background-color: #545454;
 }
 
 a {

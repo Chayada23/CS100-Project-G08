@@ -30,7 +30,7 @@ function submitForm(event) {
   }
 
   function showNamfonAlert() {
-    alert('♡talk to Namfon ♡︎ : Look just good things and grow hapily every day');
+    alert('talk to Namfon ♡︎ : Look just good things and grow hapily every day');
   }
 
 
