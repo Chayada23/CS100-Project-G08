@@ -18,11 +18,39 @@ html {
   font-family: "Lucida Sans", sans-serif;
 }
 
-.header {
+body {
+  background-color: #202020;
+}
+
+/*.header {
   background-color: #9933cc;
   color: #ffffff;
   padding: 15px;
 }
+.footer {
+  background-color: #0099cc;
+  color: #ffffff;
+  text-align: center;
+  font-size: 12px;
+  padding: 15px;
+}*/
+.header {
+  width: 100vw; /* กว้างเต็มขอบจอ */
+  height: auto; /* ความสูงเป็น auto เพื่อให้เต็มความสูงของเนื้อหาภายใน */
+  padding: 20px; /* กำหนด Padding ตามที่ต้องการ */
+  background-color: #202020;  /*เปลี่ยนสีพื้นหลังตามที่ต้องการ */
+  
+}
+
+.footer {
+  width: 100vw; /* กว้างเต็มขอบจอ */
+  height: auto; /* ความสูงเป็น auto เพื่อให้เต็มความสูงของเนื้อหาภายใน */
+  padding: 20px; /* กำหนด Padding ตามที่ต้องการ */
+  box-sizing: border-box;
+  background-color: #333; /* เปลี่ยนสีพื้นหลังตามที่ต้องการ */
+  color: #fff; /* เปลี่ยนสีข้อความตามที่ต้องการ */
+}
+
 /****** เมนูที่ลิ้งได้ ******/
 .menu ul {
   list-style-type: none;
@@ -33,13 +61,13 @@ html {
 .menu li {
   padding: 8px;
   margin-bottom: 7px;
-  background-color: #33b5e5;
+  background-color:#d08bff;
   color: #ffffff;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 }
 
 .menu li:hover {
-  background-color: #0099cc;
+  background-color: #ddb4fa;
 }
 
 a {
@@ -50,32 +78,26 @@ a {
 .menu2 ul {
     list-style-type: none;
     margin: 0;
-    padding: 5px;
+    padding: 20px;
 }
   
 .menu2 li {
     padding: 8px;
     margin-bottom: 7px;
-    background-color: #33b5e5;
+    background-color: #ce84ff;
     color: #ffffff;
 }
   
 
 .aside {
-  background-color: #33b5e5;
+  background-color: #DFAEFF;
   padding: 15px;
   color: #ffffff;
   text-align: center;
   font-size: 14px;
 }
 
-.footer {
-  background-color: #0099cc;
-  color: #ffffff;
-  text-align: center;
-  font-size: 12px;
-  padding: 15px;
-}
+
 
 [class*="col-"] {
   float: left;
@@ -130,4 +152,3 @@ a {
 img {
     max-width: 100%;
 }
-
