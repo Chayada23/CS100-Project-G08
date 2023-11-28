@@ -83,7 +83,7 @@ body {
   box-sizing: border-box;
   background-color: #333; /* เปลี่ยนสีพื้นหลังตามที่ต้องการ */
   color: #fff; /* เปลี่ยนสีข้อความตามที่ต้องการ */
-  position: fixed; /* ติดด้านล่างของหน้าจอ */
+  /*position: fixed;  /*ติดด้านล่างของหน้าจอ */
   bottom: 0; /* ตั้งค่าให้ติดกับด้านล่างของหน้าจอ */
   left: 0; /* ตั้งค่าให้ติดด้านซ้ายของหน้าจอ */
 }
@@ -134,6 +134,25 @@ a {
     margin-bottom: 7px;
     background-color: #ce84ff;
     color: #ffffff;
+}
+
+
+
+.ig {
+  width: 50%; /* ความกว้างของ .ig */
+  text-align: center; /* จัดตำแหน่งข้อความใน .ig ให้อยู่ตรงกลาง */
+  justify-content: center;
+  border-radius: 20px;
+  background-color: #d08bff; /* เปลี่ยนสีพื้นหลังตามต้องการ */
+  color: #ffffff; /* เปลี่ยนสีข้อความตามต้องการ */
+  padding: 5px; /* ปรับการเว้นระยะห่างของข้อความ */
+  margin: 0 auto; /* ปรับการเว้นระยะห่างของ .ig */
+}
+
+
+
+.ig:hover{
+  background-color: #ddb4fa;
 }
   
 
