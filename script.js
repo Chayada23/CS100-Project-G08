@@ -53,11 +53,12 @@ function submitForm(event) {
           // Check if both first and last names start with an uppercase letter
           const firstName = names[0];
           const lastName = names[1];
-          const isFirstNameValid = /^[A-Z]/.test(firstName);
-          const isLastNameValid = /^[A-Z]/.test(lastName);
+          const isFirstNameValid = /^[A-Za-z]+$/.test(firstName);
+          const isLastNameValid = /^[A-Za-z]+$/.test(lastName);
+
 
           if (!isFirstNameValid || !isLastNameValid) {
-            errorElement.textContent = "Both Firstname and Lastname must start with an uppercase letter.";
+            errorElement.textContent = "Both Firstname and Lastname must contain only English letters.";
             return false;
           }
 
