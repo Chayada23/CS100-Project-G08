@@ -6,18 +6,25 @@
   Description: CSS code of CSTU Passport that validate with JS
 */
 
-/* Set the font family for the entire body */
-body {
-    font-family: Arial, sans-serif;
+  html {
+    font-family: "Lucida Sans", sans-serif;
   }
+
+  body {
+    background-image: url('pic/bg.png');
+    background-attachment: fixed;
+    background-size: cover;
+  }
+
   
   /* Styling for the form container */
   .form-container {
     max-width: 600px;
     margin: 20px auto;
     padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    border: 3px solid #ccc;
+    border-radius: 20px;
+    background-color: #202020;
   }
   
   /* Center-align the heading and add margin at the bottom */
@@ -37,7 +44,7 @@ body {
     font-weight: bold;
   }
   
-  /* Styling for various form input types */
+  /* lสไตล์ของช่องแต่ละอย่าง */
   .form-group input[type="text"],
   .form-group input[type="email"],
   .form-group select,
@@ -46,7 +53,7 @@ body {
     width: 100%;
     padding: 8px;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 8px;
     box-sizing: border-box;
   }
   
@@ -62,12 +69,18 @@ body {
   
   /* Styling for the submit button */
   .form-group input[type="submit"] {
-    background-color: #4caf50;
+    background-color: #cf8cff;
     color: white;
     padding: 10px 15px;
     border: none;
-    border-radius: 4px;
+    border-radius: 10px;
     cursor: pointer;
+    text-align: center;
+    margin: 0;
+  }
+
+  .form-group input[type="submit"]:hover{
+    background-color: #ddb4fa;
   }
   
   /* Styling for small helper text */
@@ -88,6 +101,14 @@ body {
     color: red;
     display: block;
     margin-top: 5px;
+  }
+
+  h1{
+    color: #d08bff;
+  }
+
+  label{
+    color: #f0defd;
   }
   
   

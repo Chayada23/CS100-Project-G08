@@ -149,6 +149,11 @@ li.ig {
 }
 
 
+.m:hover{
+  background-color: #bd6af9;
+  color: #ffffff;
+}
+
 
 .ig:hover{
   background-color: #bd6af9;
