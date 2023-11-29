@@ -1,17 +1,17 @@
 // Function to handle form submission
 function submitForm(event) {
-    event.preventDefault(); // Prevents the default form submission behavior
-  
-    // Extract form data using FormData
-    const formData = new FormData(event.target);
-  
-    // Loop through the form data and log each field's name and value
-    for (const [name, value] of formData) {
-      console.log(name, value);
-    }
-  
-    // Reset the form after submission
-    document.getElementById("myForm").reset();
+        event.preventDefault(); // Prevents the default form submission behavior
+      
+        // Extract form data using FormData
+        const formData = new FormData(event.target);
+      
+        // Loop through the form data and log each field's name and value
+        for (const [name, value] of formData) {
+          console.log(name, value);
+        }
+      
+        // Reset the form after submission
+        document.getElementById("myForm").reset();
   }
   
   // Attach a submit event listener to the form
@@ -39,48 +39,33 @@ function submitForm(event) {
   };
   const port = 8000;
   
+
   // Function to validate Firstname and Lastname
-  // Function to validate Firstname and Lastname
-function validateName() {
-  const fullnameInput = document.getElementById("fullname");
-  const names = fullnameInput.value.trim().split(" ");
-  const errorElement = document.getElementById("fullnameError");
+  function validateName() {
+        const fullnameInput = document.getElementById("fullname");
+        const names = fullnameInput.value.trim().split(" ");
+        const errorElement = document.getElementById("fullnameError");
 
-  if (names.length !== 2) {
-    errorElement.textContent = "Please enter both your Firstname and Lastname.";
-    return false;
-  } else {
-    // Check if both first and last names start with an uppercase letter
-    const firstName = names[0];
-    const lastName = names[1];
-    const isFirstNameValid = /^[A-Z]/.test(firstName);
-    const isLastNameValid = /^[A-Z]/.test(lastName);
+        if (names.length !== 2) {
+          errorElement.textContent = "Please enter both your Firstname and Lastname.";
+          return false;
+        } else {
+          // Check if both first and last names start with an uppercase letter
+          const firstName = names[0];
+          const lastName = names[1];
+          const isFirstNameValid = /^[A-Z]/.test(firstName);
+          const isLastNameValid = /^[A-Z]/.test(lastName);
 
-    if (!isFirstNameValid || !isLastNameValid) {
-      errorElement.textContent = "Both Firstname and Lastname must start with an uppercase letter.";
-      return false;
+          if (!isFirstNameValid || !isLastNameValid) {
+            errorElement.textContent = "Both Firstname and Lastname must start with an uppercase letter.";
+            return false;
+          }
+
+          errorElement.textContent = ""; // Clear the error message when valid
+        }
+
+        return true;
     }
-
-    errorElement.textContent = ""; // Clear the error message when valid
-  }
-
-  return true;
-}
-  
-  // Function to validate Student ID
-  function validateStudentID() {
-    const studentIDInput = document.getElementById("studentID");
-    const studentIDPattern = /^\d{10}$/;
-    const errorElement = document.getElementById("studentIDError");
-  
-    if (!studentIDPattern.test(studentIDInput.value)) {
-      errorElement.textContent = "Please enter a 10-digit Student ID.";
-      return false;
-    } else {
-      errorElement.textContent = ""; // Clear the error message when valid
-    }
-    return true;
-  }
   
   // Function to validate Student ID
   function validateStudentID() {
@@ -88,12 +73,11 @@ function validateName() {
     const studentIDPattern = /^66\d{8}$/;  // เพิ่ม ^66 และปรับจำนวนตัวเลขให้ตรงกับที่คุณต้องการ
     const errorElement = document.getElementById("studentIDError");
   
-    if (!studentIDPattern.test(studentIDInput.value)) {
-      errorElement.textContent = "Please enter a 10-digit Student ID starting with '66'.";
-      return false;
-    } else {
-      errorElement.textContent = ""; // Clear the error message when valid
-    }
+        if (!studentIDPattern.test(studentIDInput.value)) {
+          errorElement.textContent = "Please enter a 10-digit Student ID starting with '66'.";
+          return false;
+        } else { errorElement.textContent = ""; }// Clear the error message when valid
+        
     return true;
   }
   
@@ -103,13 +87,12 @@ function validateName() {
     const emailPattern = /^.+@dome\.tu\.ac\.th$/;
     const errorElement = document.getElementById("emailError");
   
-    if (!emailPattern.test(emailInput.value)) {
-      errorElement.textContent =
-        "Please provide a valid university email in the format 'xxx.yyy@dome.tu.ac.th'.";
-      return false;
-    } else {
-      errorElement.textContent = ""; // Clear the error message when valid
-    }
+        if (!emailPattern.test(emailInput.value)) {
+          errorElement.textContent =
+            "Please provide a valid university email in the format 'xxx.yyy@dome.tu.ac.th'.";
+          return false;
+        } else { errorElement.textContent = ""; }// Clear the error message when valid
+        
     return true;
   }
   
@@ -155,84 +138,85 @@ function validateName() {
     populateActivityTypes(activityTypes);
   });
   
-  // Function to submit the form
+
   // Function to submit the form
   async function submitForm(event) {
-    event.preventDefault();
-  
-    // Validate form inputs before submission
-    if (!validateName() || !validateStudentID() || !validateEmail()) {
-      return;
-    }
-  
-    const startDateInput = document.getElementById("startDate").value;
-    const endDateInput = document.getElementById("endDate").value;
-    const startDate = new Date(startDateInput);
-    const endDate = new Date(endDateInput);
-  
-    if (endDate <= startDate) {
-      alert("End datetime should be after the start datetime.");
-      return;
-    }
-    const isWithinRange = startDate.getMonth() >= 7 && endDate.getMonth() <= 10;
-
-  if (!isWithinRange) {
-    alert("กรุณาเลือกวันที่เริ่มต้นและสิ้นสุดในช่วงสิงหาคมถึงพฤษจิกายนเท่านั้น");
-    return;
-  }
-
-
-    // Create the data object to send to the backend
-    const formData = new FormData(event.target);
-    const data = {
-      first_name: formData.get("fullname").split(" ")[0],
-      last_name: formData.get("fullname").split(" ")[1],
-      student_id: parseInt(formData.get("studentID")),
-      email: formData.get("email"),
-      title: formData.get("workTitle"),
-      type_of_work_id: parseInt(formData.get("activityType")),
-      academic_year: parseInt(formData.get("academicYear")) - 543,
-      semester: parseInt(formData.get("semester")),
-      start_date: formData.get("startDate"),
-      end_date: formData.get("endDate"),
-      location: formData.get("location"),
-      description: formData.get("description")
-    };
-  
-    console.log(data);
-  
-    try {
-      // Send data to the backend using POST request
-      const response = await fetch(`http://${window.location.hostname}:${port}/record`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      });
-  
-      if (response.ok) {
-        const responseData = await response.json();
-        console.log("Form data submitted successfully!");
-  
-        // Format JSON data for display
-        const formattedData = Object.entries(responseData.data)
-          .map(([key, value]) => `"${key}": "${value}"`)
-          .join("\n");
-  
-        // Display success message with formatted data
-        alert(responseData.message + "\n" + formattedData);
-  
-        document.getElementById("myForm").reset();
-      } else {
-        console.error("Failed to submit form data.");
-  
-        // Display error message
-        alert("Failed to submit form data. Please try again.");
+      event.preventDefault();
+    
+      // Validate form inputs before submission
+      if (!validateName() || !validateStudentID() || !validateEmail()) {
+        return;
       }
-    } catch (error) {
-      console.error("An error occurred while submitting form data:", error);
-    }
+    
+      const startDateInput = document.getElementById("startDate").value;
+      const endDateInput = document.getElementById("endDate").value;
+      const startDate = new Date(startDateInput);
+      const endDate = new Date(endDateInput);
+    
+      if (endDate <= startDate) {
+        alert("end datetime ควรมาหลัง start datetime.");
+        return;
+      }
+
+      const isWithinRange = startDate.getMonth() >= 7 && endDate.getMonth() <= 10;
+
+      if (!isWithinRange) {
+        alert("กรุณาเลือกวันที่เริ่มต้นและสิ้นสุดในช่วงสิงหาคมถึงพฤษจิกายนเท่านั้น");
+        return;
+      }
+
+
+      // Create the data object to send to the backend
+      const formData = new FormData(event.target);
+      const data = {
+        first_name: formData.get("fullname").split(" ")[0],
+        last_name: formData.get("fullname").split(" ")[1],
+        student_id: parseInt(formData.get("studentID")),
+        email: formData.get("email"),
+        title: formData.get("workTitle"),
+        type_of_work_id: parseInt(formData.get("activityType")),
+        academic_year: parseInt(formData.get("academicYear")) - 543,
+        semester: parseInt(formData.get("semester")),
+        start_date: formData.get("startDate"),
+        end_date: formData.get("endDate"),
+        location: formData.get("location"),
+        description: formData.get("description")
+      };
+    
+      console.log(data);
+    
+      try {
+        // Send data to the backend using POST request
+        const response = await fetch(`http://${window.location.hostname}:${port}/record`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        });
+    
+        if (response.ok) {
+          const responseData = await response.json();
+          console.log("Form data submitted successfully!");
+    
+          // Format JSON data for display
+          const formattedData = Object.entries(responseData.data)
+            .map(([key, value]) => `"${key}": "${value}"`)
+            .join("\n");
+    
+          // Display success message with formatted data
+          alert(responseData.message + "\n" + formattedData);
+    
+          document.getElementById("myForm").reset();
+        } else {
+          console.error("Failed to submit form data.");
+    
+          // Display error message
+          alert("Failed to submit form data. Please try again.");
+        }
+      } catch (error) {
+        console.error("An error occurred while submitting form data:", error);
+      }
   }
   
   // Event listener for form submission
