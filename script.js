@@ -66,7 +66,6 @@ function validateName() {
 
   return true;
 }
-
   
   // Function to validate Student ID
   function validateStudentID() {
@@ -175,7 +174,14 @@ function validateName() {
       alert("End datetime should be after the start datetime.");
       return;
     }
-  
+    const isWithinRange = startDate.getMonth() >= 7 && endDate.getMonth() <= 10;
+
+  if (!isWithinRange) {
+    alert("กรุณาเลือกวันที่เริ่มต้นและสิ้นสุดในช่วงสิงหาคมถึงพฤษจิกายนเท่านั้น");
+    return;
+  }
+
+
     // Create the data object to send to the backend
     const formData = new FormData(event.target);
     const data = {
@@ -239,6 +245,11 @@ function validateName() {
     .addEventListener("input", validateStudentID);
   document.getElementById("email").addEventListener("input", validateEmail);
   
+// ในภายหลังหลังจากที่หน้า HTML โหลดเสร็จ
+document.getElementById("startDate").min = "2023-08-01T00:00";
+document.getElementById("startDate").max = "2023-11-30T23:59";
+document.getElementById("endDate").min = "2023-08-01T00:00";
+document.getElementById("endDate").max = "2023-11-30T23:59";
 
 
 
