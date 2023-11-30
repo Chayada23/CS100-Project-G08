@@ -1,224 +1,220 @@
 // Function to handle form submission
 function submitForm(event) {
-        event.preventDefault(); // Prevents the default form submission behavior
-      
-        // Extract form data using FormData
-        const formData = new FormData(event.target);
-      
-        // Loop through the form data and log each field's name and value
-        for (const [name, value] of formData) {
-          console.log(name, value);
-        }
-      
-        // Reset the form after submission
-        document.getElementById("myForm").reset();
-  }
-  
-  // Attach a submit event listener to the form
-  document.getElementById("myForm").addEventListener("submit", submitForm);
-  
-  /*function showAlert(name) {
-    alert('คุณคลิกที่ ' + name + ' แล้ว');
-  }*/
+  event.preventDefault(); // Prevents the default form submission behavior
 
-  function showNuchAlert() {
-    alert('talk to Nuch ♡︎ : ไม่จำเป็นต้องแข่งขัน เพราะเรามันไม่ใช่ไก่ ');
+  // Extract form data using FormData
+  const formData = new FormData(event.target);
+
+  // Loop through the form data and log each field's name and value
+  for (const [name, value] of formData) {
+    console.log(name, value);
   }
 
-  function showNammonAlert() {
-    alert('talk to Nammon ♡︎ : ในวันที่เราล้ม เข่าเราจะถลอก');
-  }
+  // Reset the form after submission
+  document.getElementById("myForm").reset();
+}
 
-  function showNamfonAlert() {
-    alert('talk to Namfon ♡︎ : Look just good things and grow hapily every day');
-  }
+// Attach a submit event listener to the form
+document.getElementById("myForm").addEventListener("submit", submitForm);
 
+/*function showAlert(name) {
+alert('คุณคลิกที่ ' + name + ' แล้ว');
+}*/
 
-  const config = {
-    backendUrl: "http://localhost:8000/", // Default backend URL
-  };
-  const port = 8000;
-  
+function showNuchAlert() {
+alert('talk to Nuch ♡︎ : ไม่จำเป็นต้องแข่งขัน เพราะเรามันไม่ใช่ไก่ ');
+}
 
-  // Function to validate Firstname and Lastname
-  function validateName() {
-        const fullnameInput = document.getElementById("fullname");
-        const names = fullnameInput.value.trim().split(" ");
-        const errorElement = document.getElementById("fullnameError");
+function showNammonAlert() {
+alert('talk to Nammon ♡︎ : ในวันที่เราล้ม เข่าเราจะถลอก');
+}
 
-        if (names.length !== 2) {
-          errorElement.textContent = "Please enter both your Firstname and Lastname.";
-          return false;
-        } else {
-          // Check if both first and last names start with an uppercase letter
-          const firstName = names[0];
-          const lastName = names[1];
-          const isFirstNameValid = /^[A-Za-z]+$/.test(firstName);
-          const isLastNameValid = /^[A-Za-z]+$/.test(lastName);
+function showNamfonAlert() {
+alert('talk to Namfon ♡︎ : Look just good things and grow hapily every day');
+}
 
 
-          if (!isFirstNameValid || !isLastNameValid) {
-            errorElement.textContent = "Both Firstname and Lastname must contain only English letters.";
-            return false;
-          }
+const config = {
+backendUrl: "http://localhost:8000/", // Default backend URL
+};
+const port = 8000;
 
-          errorElement.textContent = ""; // Clear the error message when valid
-        }
 
-        return true;
+// Function to validate Firstname and Lastname
+function validateName() {
+  const fullnameInput = document.getElementById("fullname");
+  const names = fullnameInput.value.trim().split(" ");
+  const errorElement = document.getElementById("fullnameError");
+
+  if (names.length !== 2) {
+    errorElement.textContent = "Please enter both your Firstname and Lastname.";
+    return false;
+  } else {
+    // Check if both first and last names start with an uppercase letter
+    const firstName = names[0];
+    const lastName = names[1];
+    const isFirstNameValid = /^[A-Za-z]+$/.test(firstName);
+    const isLastNameValid = /^[A-Za-z]+$/.test(lastName);
+
+
+    if (!isFirstNameValid || !isLastNameValid) {
+      errorElement.textContent = "Both Firstname and Lastname must contain only English letters.";
+      return false;
     }
-  
-  // Function to validate Student ID
-  function validateStudentID() {
-    const studentIDInput = document.getElementById("studentID");
-    const studentIDPattern = /^6609\d{6}$/; 
-    const errorElement = document.getElementById("studentIDError");
-  
-        if (!studentIDPattern.test(studentIDInput.value)) {
-          errorElement.textContent = "Please enter a 10-digit Student ID starting with '6609'.";
-          return false;
-        } else { errorElement.textContent = ""; }// Clear the error message when valid
-        
-    return true;
+
+    errorElement.textContent = ""; // Clear the error message when valid
   }
+
+  return true;
+}
+
+// Function to validate Student ID
+function validateStudentID() {
+const studentIDInput = document.getElementById("studentID");
+const studentIDPattern = /^6609\d{6}$/; 
+const errorElement = document.getElementById("studentIDError");
+
+  if (!studentIDPattern.test(studentIDInput.value)) {
+    errorElement.textContent = "Please enter a 10-digit Student ID starting with '6609'.";
+    return false;
+  } else { errorElement.textContent = ""; }// Clear the error message when valid
   
-  // Function to validate University Email
-  function validateEmail() {
-    const emailInput = document.getElementById("email");
-    const emailPattern = /^.+@dome\.tu\.ac\.th$/;
-    const errorElement = document.getElementById("emailError");
+return true;
+}
+
+// Function to validate University Email
+function validateEmail() {
+const emailInput = document.getElementById("email");
+const emailPattern = /^.+@dome\.tu\.ac\.th$/;
+const errorElement = document.getElementById("emailError");
+
+  if (!emailPattern.test(emailInput.value)) {
+    errorElement.textContent =
+      "Please provide a valid university email in the format 'xxx.yyy@dome.tu.ac.th'.";
+    return false;
+  } else { errorElement.textContent = ""; }// Clear the error message when valid
   
-        if (!emailPattern.test(emailInput.value)) {
-          errorElement.textContent =
-            "Please provide a valid university email in the format 'xxx.yyy@dome.tu.ac.th'.";
-          return false;
-        } else { errorElement.textContent = ""; }// Clear the error message when valid
-        
-    return true;
-  }
-  
-  // Function to validate form inputs on user input
-  function validateFormOnInput() {
-    validateName();
-    validateStudentID();
-    validateEmail();
-  }
-  
-  
-  // Function to populate activity types in the select element
-  function populateActivityTypes(activityTypes) {
-    const activityTypeSelect = document.getElementById("activityType");
-  
-    for (const type of activityTypes) {
-      const option = document.createElement("option");
-      option.value = type.id;
-      option.textContent = type.value;
-      activityTypeSelect.appendChild(option);
-    }
-  }
-  
-  // Event listener when the page content has finished loading
-  document.addEventListener("DOMContentLoaded", async () => {
-    const activityTypes = await fetchActivityTypes();
-    populateActivityTypes(activityTypes);
+return true;
+}
+
+// Function to validate form inputs on user input
+function validateFormOnInput() {
+validateName();
+validateStudentID();
+validateEmail();
+}
+
+
+// Function to populate activity types in the select element
+function populateActivityTypes(activityTypes) {
+const activityTypeSelect = document.getElementById("activityType");
+
+for (const type of activityTypes) {
+const option = document.createElement("option");
+option.value = type.id;
+option.textContent = type.value;
+activityTypeSelect.appendChild(option);
+}
+}
+
+// Event listener when the page content has finished loading
+document.addEventListener("DOMContentLoaded", async () => {
+const activityTypes = await fetchActivityTypes();
+populateActivityTypes(activityTypes);
+});
+
+
+// Function to submit the form
+async function submitForm(event) {
+event.preventDefault();
+
+// Validate form inputs before submission
+if (!validateName() || !validateStudentID() || !validateEmail()) {
+  return;
+}
+
+const startDateInput = document.getElementById("startDate").value;
+const endDateInput = document.getElementById("endDate").value;
+const startDate = new Date(startDateInput);
+const endDate = new Date(endDateInput);
+
+if (endDate <= startDate) {
+alert("End datetime should be after the start datetime.");
+return;
+}
+
+
+// Create the data object to send to the backend
+const formData = new FormData(event.target);
+const data = {
+  first_name: formData.get("fullname").split(" ")[0],
+  last_name: formData.get("fullname").split(" ")[1],
+  student_id: parseInt(formData.get("studentID")),
+  email: formData.get("email"),
+  title: formData.get("workTitle"),
+  type_of_work_id: parseInt(formData.get("activityType")),
+  academic_year: parseInt(formData.get("academicYear")) - 543,
+  semester: parseInt(formData.get("semester")),
+  start_date: formData.get("startDate"),
+  end_date: formData.get("endDate"),
+  location: formData.get("location"),
+  description: formData.get("description")
+};
+
+console.log(data);
+
+try {
+  // Send data to the backend using POST request
+  const response = await fetch(`http://${window.location.hostname}:${port}/record`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
   });
-  
 
-  // Function to submit the form
-  async function submitForm(event) {
-      event.preventDefault();
-    
-      // Validate form inputs before submission
-      if (!validateName() || !validateStudentID() || !validateEmail()) {
-        return;
-      }
-    
-      const startDateInput = document.getElementById("startDate").value;
-    const endDateInput = document.getElementById("endDate").value;
-    const startDate = new Date(startDateInput);
-    const endDate = new Date(endDateInput);
-  
-    if (endDate <= startDate) {
-      alert("End datetime should be after the start datetime.");
-      return;
-    }
+  if (response.ok) {
+    const responseData = await response.json();
+    console.log("Form data submitted successfully!");
 
+    // Format JSON data for display
+    const formattedData = Object.entries(responseData.data)
+      .map(([key, value]) => `"${key}": "${value}"`)
+      .join("\n");
 
-      // Create the data object to send to the backend
-      const formData = new FormData(event.target);
-      const data = {
-        first_name: formData.get("fullname").split(" ")[0],
-        last_name: formData.get("fullname").split(" ")[1],
-        student_id: parseInt(formData.get("studentID")),
-        email: formData.get("email"),
-        title: formData.get("workTitle"),
-        type_of_work_id: parseInt(formData.get("activityType")),
-        academic_year: parseInt(formData.get("academicYear")) - 543,
-        semester: parseInt(formData.get("semester")),
-        start_date: formData.get("startDate"),
-        end_date: formData.get("endDate"),
-        location: formData.get("location"),
-        description: formData.get("description")
-      };
-    
-      console.log(data);
-    
-      try {
-        // Send data to the backend using POST request
-        const response = await fetch(`http://${window.location.hostname}:${port}/record`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(data),
-        });
-    
-        if (response.ok) {
-          const responseData = await response.json();
-          console.log("Form data submitted successfully!");
-    
-          // Format JSON data for display
-          const formattedData = Object.entries(responseData.data)
-            .map(([key, value]) => `"${key}": "${value}"`)
-            .join("\n");
-    
-          // Display success message with formatted data
-          alert(responseData.message + "\n" + formattedData);
-    
-          document.getElementById("myForm").reset();
-        } else {
-          console.error("Failed to submit form data.");
-    
-          // Display error message
-          alert("Failed to submit form data. Please try again.");
-        }
-      } catch (error) {
-        console.error("An error occurred while submitting form data:", error);
-      }
+    // Display success message with formatted data
+    alert(responseData.message + "\n" + formattedData);
+
+    document.getElementById("myForm").reset();
+  } else {
+    console.error("Failed to submit form data.");
+
+    // Display error message
+    alert("Failed to submit form data. Please try again.");
   }
-  
-  // Event listener for form submission
-  document.getElementById("myForm").addEventListener("submit", submitForm);
-  
-  // Event listeners for input validation on user input
-  document.getElementById("fullname").addEventListener("input", validateName);
-  document
-    .getElementById("studentID")
-    .addEventListener("input", validateStudentID);
-  document.getElementById("email").addEventListener("input", validateEmail);
-  
+} catch (error) {
+  console.error("An error occurred while submitting form data:", error);
+}
+}
+
+// Event listener for form submission
+document.getElementById("myForm").addEventListener("submit", submitForm);
+
+// Event listeners for input validation on user input
+document.getElementById("fullname").addEventListener("input", validateName);
+document
+.getElementById("studentID")
+.addEventListener("input", validateStudentID);
+document.getElementById("email").addEventListener("input", validateEmail);
+
 // ...
 
 // Event listener when the page content has finished loading
 document.addEventListener("DOMContentLoaded", async () => {
-  const activityTypes = await fetchActivityTypes();
-  populateActivityTypes(activityTypes);
+const activityTypes = await fetchActivityTypes();
+populateActivityTypes(activityTypes);
 
-  
+
 });
 
 // ...
-
-
-
-
