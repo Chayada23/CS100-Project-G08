@@ -1,11 +1,3 @@
-/*
-  File: styles.css
-  Author: CS100 Team
-  Date Created: 23 July 2023
-  Copyright: CSTU
-  Description: CSS code of CSTU Passport that validate with JS
-*/
-
   html {
     font-family: "Lucida Sans", sans-serif;
   }
@@ -44,7 +36,7 @@
     font-weight: bold;
   }
   
-  /* lสไตล์ของช่องแต่ละอย่าง */
+  /* สไตล์ของช่องแต่ละอย่าง */
   .form-group input[type="text"],
   .form-group input[type="email"],
   .form-group select,
@@ -76,7 +68,8 @@
     border-radius: 10px;
     cursor: pointer;
     text-align: center;
-    margin: 0;
+    display: block; /*จัดปุ่มไว้ตรงกลาง*/
+    margin: 0 auto; /*จัดปุ่มไว้ตรงกลาง*/
   }
 
   .form-group input[type="submit"]:hover{
@@ -88,8 +81,6 @@
     font-size: 12px;
     color: #888;
   }
-  
-  /* New styles for error messages */
   
   /* Position the error message relatively within the form group */
   .form-group {

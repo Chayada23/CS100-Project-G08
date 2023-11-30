@@ -104,22 +104,6 @@ function submitForm(event) {
     validateEmail();
   }
   
-  // Function to fetch activity types from the backend
-  async function fetchActivityTypes() {
-    try {
-      const response = await fetch(`http://${window.location.hostname}:${port}/getActivityType`);
-      if (response.ok) {
-        const data = await response.json();
-        return data;
-      } else {
-        console.error("Failed to fetch activity types.");
-        return [];
-      }
-    } catch (error) {
-      console.error("An error occurred while fetching activity types:", error);
-      return [];
-    }
-  }
   
   // Function to populate activity types in the select element
   function populateActivityTypes(activityTypes) {
