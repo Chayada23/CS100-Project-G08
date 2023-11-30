@@ -1,5 +1,5 @@
 // Function to handle form submission
-function submitForm(event) {
+/*function submitForm(event) {
   event.preventDefault(); // Prevents the default form submission behavior
 
   // Extract form data using FormData
@@ -34,10 +34,10 @@ alert('talk to Namfon ♡︎ : Look just good things and grow hapily every day')
 }
 
 
-const config = {
+/*const config = {
 backendUrl: "http://localhost:8000/", // Default backend URL
 };
-const port = 8000;
+const port = 8000;*/
 
 
 // Function to validate Firstname and Lastname
