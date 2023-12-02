@@ -34,15 +34,13 @@
 
       <!-- Gender -->
       <div class="form-group">
-        <label for="Gend">Gender</label> </br>
-          <input type="radio" id="woman" name="Gend" value="woman">
-          <label for="woman">Woman</label>
-          <input type="radio" id="man" name="Gend" value="man">
-          <label for="man">Man</label>
-          <input type="radio" id="LGBTQIA+" name="Gend" value="LGBTQIA+">
-          <label for="lgbtqia+">LGBTQIA+</label>
-          <input type="radio" id="none" name="Gend" value="none" checked>
-          <label for="none">None</label> </br></br>
+        <label for="gender">Gender</label>
+        <select id="gender" name="gender" required>
+            <option value="" disabled selected>Select gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="LGBTQIA+">LGBTQIA+</option>
+        </select>
       </div>
         
       <!-- University Email Field -->

@@ -225,6 +225,7 @@ function showNuchAlert() {
     let topic = "♡︎ Check your info ♡︎"
     let fullname = document.getElementById('fullname')
     let stid = document.getElementById('studentID')
+    let gen = document.getElementById('gender')
     let mail = document.getElementById('email')
     let type = document.getElementById('activityType')
     let year = document.getElementById('academicYear')
@@ -239,6 +240,7 @@ function showNuchAlert() {
     msg += '<h1 class="only"><center>' + topic + '</center></h1>';
     msg += '<p class="send"><b>Firstname and Lastname :</b> '+ fullname.value +'</p>'
     msg += '<p class="send"><b>Student ID :</b> '+ stid.value +'</p>'
+    msg += '<p class="send"><b>Gender :</b> '+ gen.value +'</p>'
     msg += '<p class="send"><b>University Email :</b> '+ mail.value +'</p>'
     msg += '<p class="send"><b>Major :</b> '+ type.value +'</p>'
     msg += '<p class="send"><b>Academic Year :</b> ' + year.value +'</p>'
