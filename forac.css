@@ -60,7 +60,8 @@
   }
   
   /* Styling for the submit button */
-  .form-group input[type="submit"] {
+  .sub{
+    font-family: "Lucida Sans", sans-serif;
     background-color: #cf8cff;
     color: white;
     padding: 10px 15px;
@@ -72,7 +73,7 @@
     margin: 0 auto; /*จัดปุ่มไว้ตรงกลาง*/
   }
 
-  .form-group input[type="submit"]:hover{
+  .sub:hover{
     background-color: #ddb4fa;
   }
   
@@ -101,5 +102,22 @@
   label{
     color: #f0defd;
   }
+
+ .showresult {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;    
+  border: 3px solid #000000;
+  border-radius: 20px;
+  background-color: #d08bff;
+ }
+
+ .send{
+  color: #f0defd;
+ }
+ 
+ .only{
+  color: #b042ff;
+ }
   
   
