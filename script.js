@@ -47,26 +47,27 @@ function validateName() {
   const errorElement = document.getElementById("fullnameError");
 
   if (names.length !== 2) {
-    errorElement.textContent = "Please enter both your Firstname and Lastname.";
+    errorElement.textContent = "Please enter both your Firstname and Lastname";
     return false;
   } else {
-    // Check if both first and last names start with an uppercase letter
+    // ตรวจสอบว่าทั้งชื่อและนามสกุลขึ้นต้นด้วยตัวอักษรใหญ่
     const firstName = names[0];
     const lastName = names[1];
-    const isFirstNameValid = /^[A-Za-z]+$/.test(firstName);
-    const isLastNameValid = /^[A-Za-z]+$/.test(lastName);
-
+    const isFirstNameValid = /^[A-Z][a-z]*$/.test(firstName);
+    const isLastNameValid = /^[A-Z][a-z]*$/.test(lastName);
 
     if (!isFirstNameValid || !isLastNameValid) {
-      errorElement.textContent = "Both Firstname and Lastname must contain only English letters.";
+      errorElement.textContent = "Both first and last names should start with an uppercase letter and contain only English letters";
       return false;
     }
 
-    errorElement.textContent = ""; // Clear the error message when valid
+    errorElement.textContent = ""; // เคลียร์ข้อความผิดเมื่อถูกต้อง
   }
 
   return true;
 }
+
+
 
 // Function to validate Student ID
 function validateStudentID() {
